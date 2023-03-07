@@ -27,24 +27,26 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
 
     @Override
     public void deleteLast() {
-        // TODO
+        DequeNode<T> previous = last.getPrevious();
+        previous.setNext(null);
+        last.setItem(null);
+        last.setPrevious(null);
+        last.setNext(null);
+        last=previous;
     }
 
     @Override
     public T first() {
-        // TODO
-        return null;
+        return first.getItem();
     }
 
     @Override
     public T last() {
-        // TODO
-        return null;
+        return last.getItem();
     }
 
     @Override
     public int size() {
-        // TODO
-        return 0;
+        return size;
     }
 }
