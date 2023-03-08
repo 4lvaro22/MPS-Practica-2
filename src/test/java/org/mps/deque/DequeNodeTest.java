@@ -245,69 +245,6 @@ class DequeNodeTest {
 
                         assertThat(actualElement).isEqualTo(false);
                     }
-
-                    @Nested
-                    @DisplayName("after adding a next node")
-                    class AfterAddingNextNode {
-                        DequeNode<Integer> next = new DequeNode<>(2, null, null);
-
-                        @BeforeEach
-                        void addingANextNode() {
-                            integerDequeNode.setNext(next);
-                        }
-
-                        @Test
-                        @DisplayName("returns a not null element")
-                        void returnNotNullElement() {
-                            Integer actualElement = integerDequeNode.getItem();
-                            Integer expectedElement = 1;
-
-                            assertThat(actualElement).isEqualTo(expectedElement);
-                        }
-
-                        @Test
-                        @DisplayName("return a not null next node")
-                        void returnNullNextNode() {
-                            DequeNode<Integer> actualElement = integerDequeNode.getNext();
-                            DequeNode<Integer> expectedElement = next;
-
-                            assertThat(actualElement).isEqualTo(expectedElement);
-                        }
-
-                        @Test
-                        @DisplayName("return a not null previous node")
-                        void returnNullPreviousNode() {
-                            DequeNode<Integer> actualElement = integerDequeNode.getPrevious();
-                            DequeNode<Integer> expectedElement = previous;
-
-
-                            assertThat(actualElement).isEqualTo(expectedElement);
-                        }
-
-                        @Test
-                        @DisplayName("is not first node")
-                        void isFirstNode() {
-                            boolean actualElement = integerDequeNode.isFirstNode();
-
-                            assertThat(actualElement).isEqualTo(false);
-                        }
-
-                        @Test
-                        @DisplayName("is not last node")
-                        void isLastNode() {
-                            boolean actualElement = integerDequeNode.isLastNode();
-
-                            assertThat(actualElement).isEqualTo(false);
-                        }
-
-                        @Test
-                        @DisplayName("is not a terminal node")
-                        void isNotATerminalNode() {
-                            boolean actualElement = integerDequeNode.isNotATerminalNode();
-
-                            assertThat(actualElement).isEqualTo(true);
-                        }
-                    }
                 }
 
                 @Nested
@@ -370,68 +307,70 @@ class DequeNodeTest {
 
                         assertThat(actualElement).isEqualTo(false);
                     }
+                }
 
-                    @Nested
-                    @DisplayName("after adding a previous node")
-                    class AfterAddingPreviousNode {
-                        DequeNode<Integer> previous = new DequeNode<>(2, null, null);
+                @Nested
+                @DisplayName("after adding a next and previous node")
+                class AfterAddingNextAndPreviousNode {
+                    DequeNode<Integer> next = new DequeNode<>(2, null, null);
+                    DequeNode<Integer> previous = new DequeNode<>(3, null, null);
 
-                        @BeforeEach
-                        void addingAPreviousNode() {
-                            integerDequeNode.setPrevious(previous);
-                        }
+                    @BeforeEach
+                    void addingANextNode() {
+                        integerDequeNode.setNext(next);
+                        integerDequeNode.setPrevious(previous);
+                    }
 
-                        @Test
-                        @DisplayName("returns a not null element")
-                        void returnNotNullElement() {
-                            Integer actualElement = integerDequeNode.getItem();
-                            Integer expectedElement = 1;
+                    @Test
+                    @DisplayName("returns a not null element")
+                    void returnNotNullElement() {
+                        Integer actualElement = integerDequeNode.getItem();
+                        Integer expectedElement = 1;
 
-                            assertThat(actualElement).isEqualTo(expectedElement);
-                        }
+                        assertThat(actualElement).isEqualTo(expectedElement);
+                    }
 
-                        @Test
-                        @DisplayName("return a not null next node")
-                        void returnNullNextNode() {
-                            DequeNode<Integer> actualElement = integerDequeNode.getNext();
-                            DequeNode<Integer> expectedElement = next;
+                    @Test
+                    @DisplayName("return a not null next node")
+                    void returnNullNextNode() {
+                        DequeNode<Integer> actualElement = integerDequeNode.getNext();
+                        DequeNode<Integer> expectedElement = next;
 
-                            assertThat(actualElement).isEqualTo(expectedElement);
-                        }
+                        assertThat(actualElement).isEqualTo(expectedElement);
+                    }
 
-                        @Test
-                        @DisplayName("return a not null previous node")
-                        void returnNullPreviousNode() {
-                            DequeNode<Integer> actualElement = integerDequeNode.getPrevious();
-                            DequeNode<Integer> expectedElement = previous;
+                    @Test
+                    @DisplayName("return a not null previous node")
+                    void returnNullPreviousNode() {
+                        DequeNode<Integer> actualElement = integerDequeNode.getPrevious();
+                        DequeNode<Integer> expectedElement = previous;
 
 
-                            assertThat(actualElement).isEqualTo(expectedElement);
-                        }
+                        assertThat(actualElement).isEqualTo(expectedElement);
+                    }
 
-                        @Test
-                        @DisplayName("is not first node")
-                        void isFirstNode() {
-                            boolean actualElement = integerDequeNode.isFirstNode();
+                    @Test
+                    @DisplayName("is not first node")
+                    void isFirstNode() {
+                        boolean actualElement = integerDequeNode.isFirstNode();
 
-                            assertThat(actualElement).isEqualTo(false);
-                        }
+                        assertThat(actualElement).isEqualTo(false);
+                    }
 
-                        @Test
-                        @DisplayName("is not last node")
-                        void isLastNode() {
-                            boolean actualElement = integerDequeNode.isLastNode();
+                    @Test
+                    @DisplayName("is not last node")
+                    void isLastNode() {
+                        boolean actualElement = integerDequeNode.isLastNode();
 
-                            assertThat(actualElement).isEqualTo(false);
-                        }
+                        assertThat(actualElement).isEqualTo(false);
+                    }
 
-                        @Test
-                        @DisplayName("is not a terminal node")
-                        void isNotATerminalNode() {
-                            boolean actualElement = integerDequeNode.isNotATerminalNode();
+                    @Test
+                    @DisplayName("is not a terminal node")
+                    void isNotATerminalNode() {
+                        boolean actualElement = integerDequeNode.isNotATerminalNode();
 
-                            assertThat(actualElement).isEqualTo(true);
-                        }
+                        assertThat(actualElement).isEqualTo(true);
                     }
                 }
             }
