@@ -138,6 +138,78 @@ class DoublyLinkedListDequeTest {
             }
 
             @Nested
+            @DisplayName("delete first element")
+            class deleteFirst{
+
+                Integer value = 1;
+
+                @BeforeEach
+                void prependAnElement(){
+                    doublyLinkedListDeque.prepend(value);
+                }
+
+                @Test
+                @DisplayName("just one element in the structure deleted, size equals zero")
+                void deleteTheFirstAndOnlyElement(){
+                    Integer actualValue;
+                    Integer expectedValue = 0;
+
+                    doublyLinkedListDeque.deleteFirst();
+                    actualValue = doublyLinkedListDeque.size();
+
+                    assertThat(actualValue).isEqualTo(expectedValue);
+                }
+
+                @Test
+                @DisplayName("just one element in the structure deleted, first and last equals null")
+                void allDeleted(){
+                    boolean actualValue;
+                    boolean expectedValue = true;
+
+                    doublyLinkedListDeque.deleteFirst();
+                    actualValue = (doublyLinkedListDeque.first() == null && doublyLinkedListDeque.last() == null);
+
+                    assertThat(actualValue).isEqualTo(expectedValue);
+                }
+            }
+
+            @Nested
+            @DisplayName("delete last element")
+            class deleteLast{
+
+                Integer value = 1;
+
+                @BeforeEach
+                void prependAnElement(){
+                    doublyLinkedListDeque.prepend(value);
+                }
+
+                @Test
+                @DisplayName("just one element in the structure deleted, size equals zero")
+                void deleteTheLastAndOnlyElement(){
+                    Integer actualValue;
+                    Integer expectedValue = 0;
+
+                    doublyLinkedListDeque.deleteLast();
+                    actualValue = doublyLinkedListDeque.size();
+
+                    assertThat(actualValue).isEqualTo(expectedValue);
+                }
+
+                @Test
+                @DisplayName("just one element in the structure deleted, first and last equals null")
+                void allDeleted(){
+                    boolean actualValue;
+                    boolean expectedValue = true;
+
+                    doublyLinkedListDeque.deleteLast();
+                    actualValue = (doublyLinkedListDeque.first() == null && doublyLinkedListDeque.last() == null);
+
+                    assertThat(actualValue).isEqualTo(expectedValue);
+                }
+            }
+
+            @Nested
             @DisplayName("check different sizes")
             class size{
 
