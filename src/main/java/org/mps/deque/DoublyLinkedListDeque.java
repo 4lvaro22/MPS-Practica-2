@@ -14,9 +14,15 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
 
     @Override
     public void prepend(T value) {
-        first = new DequeNode<>(value, null, first);
+        DequeNode<T> aux = new DequeNode<>(value, null, first);
 
-        if(size == 0){
+        if (first != null) {
+            first.setPrevious(aux);
+        }
+
+        first = aux;
+
+        if(this.size() == 0){
             last = first;
         }
 
@@ -25,9 +31,15 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
 
     @Override
     public void append(T value) {
-        last = new DequeNode<>(value, last, null);
+        DequeNode<T> aux = new DequeNode<>(value, last, null);
 
-        if(size == 0){
+        if (last != null) {
+            last.setNext(aux);
+        }
+
+        last = aux;
+
+        if(this.size() == 0){
             first = last;
         }
 
@@ -36,19 +48,21 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
 
     @Override
     public void deleteFirst() {
-        DequeNode<T> newFirst = first;
+        if(this.size() == 0){
+            throw new DoubleEndedQueueException("No existen elementos para borrar de la lista");
+        }
+        DequeNode<T> newFirst = first.getNext();
+
+        first.setNext(null);
+        first.setPrevious(null);
+        first.setItem(null);
 
         if(size == 1){
-            first.setItem(null);
-        }else {
-            /*
-            newFirst = first.getNext();
-            first.setItem(null);
-            first.setNext(null);
-            first.setPrevious(null);
-            first = next;
-            first.setPrevious(null);
-            */
+            first = null;
+            last = null;
+        }else{
+            newFirst.setPrevious(null);
+            first = newFirst;
         }
 
         size--;
@@ -56,18 +70,21 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
 
     @Override
     public void deleteLast() {
-        DequeNode<T> newLast = last;
+        if(size == 0){
+            throw new DoubleEndedQueueException("No existen elementos para borrar de la lista");
+        }
+        DequeNode<T> newLast = last.getPrevious();
 
-        if(size == 1){
-            last.setItem(null);
+        last.setNext(null);
+        last.setPrevious(null);
+        last.setItem(null);
+
+        if(this.size() == 1){
+            first = null;
+            last = null;
         }else{
-            /*
-            previous.setNext(null);
-            last.setItem(null);
-            last.setPrevious(null);
-            last.setNext(null);
-            last=previous;
-            */
+            newLast.setPrevious(null);
+            last = newLast;
         }
 
         size--;
@@ -75,11 +92,17 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
 
     @Override
     public T first() {
+        if(this.size() == 0){
+            throw new DoubleEndedQueueException("No existe un nodo en la lista para obtener el elemento");
+        }
         return first.getItem();
     }
 
     @Override
     public T last() {
+        if(this.size() == 0){
+            throw new DoubleEndedQueueException("No existe un nodo en la lista para obtener el elemento");
+        }
         return last.getItem();
     }
 
