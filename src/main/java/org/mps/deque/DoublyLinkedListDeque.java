@@ -36,22 +36,41 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
 
     @Override
     public void deleteFirst() {
-        DequeNode<T> next = first.getNext();
-        first.setItem(null);
-        first.setNext(null);
-        first.setPrevious(null);
-        first = next;
-        first.setPrevious(null);
+        DequeNode<T> newFirst = first;
+
+        if(size == 1){
+            first.setItem(null);
+        }else {
+            /*
+            newFirst = first.getNext();
+            first.setItem(null);
+            first.setNext(null);
+            first.setPrevious(null);
+            first = next;
+            first.setPrevious(null);
+            */
+        }
+
+        size--;
     }
 
     @Override
     public void deleteLast() {
-        DequeNode<T> previous = last.getPrevious();
-        previous.setNext(null);
-        last.setItem(null);
-        last.setPrevious(null);
-        last.setNext(null);
-        last=previous;
+        DequeNode<T> newLast = last;
+
+        if(size == 1){
+            last.setItem(null);
+        }else{
+            /*
+            previous.setNext(null);
+            last.setItem(null);
+            last.setPrevious(null);
+            last.setNext(null);
+            last=previous;
+            */
+        }
+
+        size--;
     }
 
     @Override
