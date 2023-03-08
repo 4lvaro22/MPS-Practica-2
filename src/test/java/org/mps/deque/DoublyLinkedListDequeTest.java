@@ -119,7 +119,7 @@ class DoublyLinkedListDequeTest {
                 }
 
                 @Test
-                @DisplayName("the fist element is correct")
+                @DisplayName("the first element is correct")
                 void getTheFirstElemente(){
                     Integer actualValue = doublyLinkedListDeque.first();
                     Integer expectedValue = 1;
@@ -161,13 +161,17 @@ class DoublyLinkedListDequeTest {
                 }
 
                 @Test
-                @DisplayName("just one element in the structure deleted, first and last equals null")
-                void allDeleted(){
-                    boolean actualValue;
-                    boolean expectedValue = true;
+                @DisplayName("more than one element, reduce the size correctly")
+                void deleteFirstMoreThanOneElement(){
+                    doublyLinkedListDeque.prepend(2);
+                    doublyLinkedListDeque.prepend(3);
+                    doublyLinkedListDeque.prepend(4);
+
+                    Integer actualValue;
+                    Integer expectedValue = 3;
 
                     doublyLinkedListDeque.deleteFirst();
-                    actualValue = (doublyLinkedListDeque.first() == null && doublyLinkedListDeque.last() == null);
+                    actualValue = doublyLinkedListDeque.size();
 
                     assertThat(actualValue).isEqualTo(expectedValue);
                 }
@@ -197,13 +201,17 @@ class DoublyLinkedListDequeTest {
                 }
 
                 @Test
-                @DisplayName("just one element in the structure deleted, first and last equals null")
-                void allDeleted(){
-                    boolean actualValue;
-                    boolean expectedValue = true;
+                @DisplayName("more than one element, reduce the size correctly")
+                void deleteFirstMoreThanOneElement(){
+                    doublyLinkedListDeque.prepend(2);
+                    doublyLinkedListDeque.prepend(3);
+                    doublyLinkedListDeque.prepend(4);
+
+                    Integer actualValue;
+                    Integer expectedValue = 3;
 
                     doublyLinkedListDeque.deleteLast();
-                    actualValue = (doublyLinkedListDeque.first() == null && doublyLinkedListDeque.last() == null);
+                    actualValue = doublyLinkedListDeque.size();
 
                     assertThat(actualValue).isEqualTo(expectedValue);
                 }
