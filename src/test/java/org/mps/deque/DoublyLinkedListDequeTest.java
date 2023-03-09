@@ -33,7 +33,35 @@ class DoublyLinkedListDequeTest {
             @Test
             @DisplayName("is empty")
             void isEmpty(){
-                assertTrue(doublyLinkedListDeque.size() == 0);
+                assertThat(doublyLinkedListDeque.size()).isEqualTo(0);
+            }
+
+            @Nested
+            @DisplayName("error cases")
+            class ExceptionCases {
+                @Test
+                @DisplayName("deleting the first and, although, the size is zero")
+                void ExceptionDeleteFirstWithNoNodes(){
+                    assertThrows(DoubleEndedQueueException.class, () -> doublyLinkedListDeque.deleteFirst());
+                }
+
+                @Test
+                @DisplayName("deleting the last and, although, the size is zero")
+                void ExceptionDeleteLastWithNoNodes(){
+                    assertThrows(DoubleEndedQueueException.class, () -> doublyLinkedListDeque.deleteLast());
+                }
+
+                @Test
+                @DisplayName("getting the first element and, although, the size is zero")
+                void ExceptionGettingFirstWithNoNodes(){
+                    assertThrows(DoubleEndedQueueException.class, () -> doublyLinkedListDeque.first());
+                }
+
+                @Test
+                @DisplayName("getting the last element and, although, the size is zero")
+                void ExceptionGettingLastWithNoNodes(){
+                    assertThrows(DoubleEndedQueueException.class, () -> doublyLinkedListDeque.last());
+                }
             }
 
             @Nested
