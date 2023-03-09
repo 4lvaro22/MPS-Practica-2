@@ -14,6 +14,10 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
 
     @Override
     public void prepend(T value) {
+        if(value == null){
+            throw new DoubleEndedQueueException("No se puede asignar a un nodo un elemento que sea nulo");
+        }
+
         DequeNode<T> aux = new DequeNode<>(value, null, first);
 
         if (first != null) {
@@ -31,6 +35,10 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
 
     @Override
     public void append(T value) {
+        if(value == null){
+            throw new DoubleEndedQueueException("No se puede asignar a un nodo un elemento que sea nulo");
+        }
+
         DequeNode<T> aux = new DequeNode<>(value, last, null);
 
         if (last != null) {
