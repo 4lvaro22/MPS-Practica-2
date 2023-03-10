@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * CASOS DE PRUEBA
- * 1. Pruebas del constructor de de SoublyLinkedListDeque -- 33 test
+ * 1. Pruebas del constructor de de SoublyLinkedListDeque -- 30 test
  *  1.1 Comprobar que se instancia como un nuevo objeto
  *  1.2 Ccomprobar que cuando se instancia como nuevo, el tamaño de la lista es 0
  *  1.3 Después de prependar y apendar un nodo -- 8 test
