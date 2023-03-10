@@ -8,6 +8,41 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * CASOS DE PRUEBA
+ * 1. Pruebas del constructor de de SoublyLinkedListDeque -- 33 test
+ *  1.1 Comprobar que se instancia como un nuevo objeto
+ *  1.2 Ccomprobar que cuando se instancia como nuevo, el tamaño de la lista es 0
+ *  1.3 Después de prependar y apendar un nodo -- 8 test
+ *      1.3.1 Comprobar que cuando se crean dos nuevos nodos, no están vacíos
+ *      1.3.2 Comprobar que el tamaño es correcto
+ *      1.3.3 Comprobar que al prependar un nuevo nodo, el tamaño se incrementa correctamente
+ *      1.3.4 Comprobar que al apendar un nuevo nodo, el tamaño se incrementa correctamente
+ *      1.3.5 Comprobar que al borrar el último, el tamaño se decrementa correctamente
+ *      1.3.6 Comprobar que al borrar el primero, el tamaño se decrementa correctamente
+ *      1.3.7 Comprobar que el elemento del último nodo es correcto
+ *      1.3.8 Comprobar que el elemento del primer nodo es correcto
+ *  1.4 Después de apendar un nodo -- 8 test
+ *      1.4.1 Comprobar que cuando se crea un nuevo nodo, no está vacío
+ *      1.4.2 Comprobar que cuando en la lista hay un nodo, el primer y último elemento son el mismo
+ *      1.4.3 Comprobar que al apendar un nuevo nodo valor vacío, se lanza una excepción
+ *      1.4.4 Comprobar que cuando en la lista un nodo, el tamaño es correcto
+ *      1.4.5 Comprobar que cuando se borra el último nodo, el tamaño es correcto
+ *      1.4.6 Comprobar que cuando se borra el primer nodo, el tamaño es correcto
+ *      1.4.7 Comprobar que el elemento del primer nodo es correcto
+ *      1.4.8 Comprobar que el elemento del último nodo es correcto
+ *  1.5 Después de prependar un nodo -- 8 test
+ *      1.5.1 Comprobar que cuando se crea un nuevo nodo, no está vacío
+ *      1.5.2 Comprobar que cuando en la lista hay un nodo, el primer y último elemento son el mismo
+ *      1.5.3 Comprobar que al apendar un nuevo nodo valor vacío, se lanza una excepción
+ *      1.5.4 Comprobar que cuando en la lista un nodo, el tamaño es correcto
+ *      1.5.5 Comprobar que cuando se borra el último nodo, el tamaño es correcto
+ *      1.5.6 Comprobar que cuando se borra el primer nodo, el tamaño es correcto
+ *      1.5.7 Comprobar que el elemento del primer nodo es correcto
+ *      1.5.8 Comprobar que el elemento del último nodo es correcto
+ *  1.6 Casos de error -- 4 test
+ *      1.6.1 Comprobar que cuando la lista está vacía e intentas obtener el elemento del último nodo, lanza una excepción
+ *      1.6.2 Comprobar que cuando la lista está vacía e intentas borrar el último nodo, lanza una excepción
+ *      1.6.3 Comprobar que cuando la lista está vacía e intentas obtener el elemento del primer nodo, lanza una excepción
+ *      1.6.4 Comprobar que cuando la lista está vacía e intentas borrar el primer nodo, lanza una excepción
  */
 
 @DisplayName("A DoublyLinkedListDeque")
