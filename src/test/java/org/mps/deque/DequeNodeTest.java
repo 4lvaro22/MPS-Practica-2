@@ -36,8 +36,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 class DequeNodeTest {
     DequeNode<Integer> integerDequeNode;
 
-    @Order(1)
     @Nested
+    @Order(1)
     @DisplayName("when create")
     class isInstantiated {
 
@@ -91,8 +91,8 @@ class DequeNodeTest {
         }
     }
 
-    @Order(2)
     @Nested
+    @Order(2)
     @DisplayName("when new")
     class WhenNew {
 
