@@ -121,9 +121,35 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
         return size;
     }
 
+    private DequeNode<T> getNode(int index){
+        DequeNode<T> selectedNode = first;
+        T indexValue = null;
+        int i = 0;
+        if(index <= (this.size() / 2)){
+            while (i <= (this.size() / 2) && indexValue == null){
+                if(i == index){
+                    indexValue = selectedNode.getItem();
+                }
+                i ++;
+                selectedNode = selectedNode.getNext();
+            }
+        }else{
+            i = this.size() - 1;
+            while (i > (this.size() / 2) && indexValue == null){
+                if(i == index){
+                    indexValue = selectedNode.getItem();
+                }
+                i --;
+                selectedNode = selectedNode.getPrevious();
+            }
+        }
+
+        return selectedNode;
+    }
+
     @Override
     public T get(int index) {
-        return null;
+        return this.getNode(index).getItem();
     }
 
     @Override
@@ -161,6 +187,15 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
 
     @Override
     public void sort(Comparator<? super T> comparator) {
-
+        int n = this.size();
+        for (int i = 1; i < n; ++i) {
+            T key = this.get(i);
+            int j = i - 1;
+            while (j >= 0 && comparator.compare(this.get(j), key) > 0) {
+                this.getNode(j+1).setItem(this.get(j));
+                j = j - 1;
+            }
+            this.getNode(j+1).setItem(key);
+        }
     }
 }
