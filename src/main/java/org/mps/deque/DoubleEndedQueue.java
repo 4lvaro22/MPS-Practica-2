@@ -1,5 +1,7 @@
 package org.mps.deque;
 
+import java.util.Comparator;
+
 /**
  * A double-ended queue or deque is a linear collection that supports element
  * insertion, retrieval and removal at both ends.
@@ -60,6 +62,43 @@ public interface DoubleEndedQueue<T> {
     int size();
 
     // Complex operations
-    // (Estas operaciones se incluirán más adelante para ser realizadas en la segunda
-    // sesión de laboratorio de esta práctica.)
+
+    /**
+     * Returns the element at the specified position in this deque.
+     * Element at the front of the deque is at position 0.
+     *
+     * @param index of the element to return
+     * @return the element at the specified position in this deque
+     * @throws IndexOutOfBoundsException if the index is out of range
+     */
+    T get(int index);
+
+    /**
+     * Returns {@code true} if this deque contains the specified element.
+     * <p>
+     * More formally, returns {@code true} if and only if this deque contains at least one
+     * element {@code e} such that {@code Objects.equals(e, value)}.
+     *
+     * @param value whose presence in this deque is to be tested
+     * @return {@code true} if this deque contains the specified element
+     */
+    boolean contains(T value);
+
+    /**
+     * Removes the first occurrence of the specified element from this deque, if it is present.
+     *
+     * @param value to be removed from this deque, if present
+     */
+    void remove(T value);
+
+    /**
+     * Sorts this deque according to the order induced by the specified {@code Comparator}.
+     *
+     * <h3>Implementation Requirements:</h3>
+     * The implementation must use an in-place sorting algorithm; i.e., it is not allowed to
+     * allocate any new object on the heap.
+     *
+     * @param comparator the {@code Comparator} used to compare deque elements
+     */
+    void sort(Comparator<? super T> comparator);
 }
