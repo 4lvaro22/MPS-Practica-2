@@ -157,7 +157,7 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
         DequeNode<T> current = first;
 
         while(current != null){
-            if(current.getItem() == value){
+            if(current.getItem().equals(value)){
                 return true;
             }
             current = current.getNext();
@@ -173,7 +173,7 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
         DequeNode<T> next = null;
         
         while(current != null){
-            if(current.getItem() == value){
+            if(current.getItem().equals(value)){
                 previous.setNext(current.getNext());
                 next.setPrevious(current.getPrevious());
                 current = null;
